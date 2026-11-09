@@ -1,0 +1,872 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Invited to Aly's 18th Birthday!</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Patrick+Hand&family=Caveat:wght@700&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --sky: #80aaff;
+    --blue: #5276d9;
+    --navy: #253d79;
+    --yellow: #fff000;
+    --green: #b9f28b;
+    --paper: #f9f8ef;
+    --pink: #ffb6d9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Patrick Hand', cursive;
+    color: var(--navy);
+    background: linear-gradient(145deg, #a8d9ff, #7296f5 55%, #b6d9ff);
+    padding: 25px 14px 50px;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+.page {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    position: relative;
+}
+
+/* DOODLES */
+
+.doodle {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    animation: float 4s ease-in-out infinite;
+}
+
+.doodle.one {
+    top: 7%;
+    left: 5%;
+    font-size: 43px;
+    transform: rotate(-25deg);
+}
+
+.doodle.two {
+    top: 17%;
+    right: 5%;
+    font-size: 38px;
+    animation-delay: 1s;
+}
+
+.doodle.three {
+    bottom: 12%;
+    left: 4%;
+    font-size: 35px;
+    animation-delay: 2s;
+}
+
+.doodle.four {
+    bottom: 8%;
+    right: 5%;
+    font-size: 43px;
+    animation-delay: .5s;
+}
+
+.doodle.five {
+    top: 48%;
+    left: 2%;
+    font-size: 25px;
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -13px; }
+}
+
+.sparkle {
+    position: fixed;
+    z-index: 0;
+    color: #fff8a7;
+    pointer-events: none;
+    animation: twinkle 2s infinite alternate;
+}
+
+.sparkle.a { top: 24%; left: 12%; }
+.sparkle.b { top: 68%; right: 10%; animation-delay: .7s; }
+.sparkle.c { top: 85%; left: 25%; animation-delay: 1.2s; }
+
+@keyframes twinkle {
+    from { opacity: .3; transform: scale(.7) rotate(0); }
+    to { opacity: 1; transform: scale(1.3) rotate(35deg); }
+}
+
+/* TOP BAR */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 12px 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.circle-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: #ffffff;
+    display: grid;
+    place-items: center;
+    font-size: 21px;
+    box-shadow: 2px 3px 0 rgba(39, 69, 132, .2);
+}
+
+/* TITLE */
+
+.title-area {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 10px 5px 22px;
+}
+
+.title-small {
+    font-family: 'Caveat', cursive;
+    display: inline-block;
+    background: var(--green);
+    color: #142b20;
+    font-size: 25px;
+    padding: 1px 27px 4px;
+    border: 2px solid #426d50;
+    border-radius: 50%;
+    transform: rotate(-5deg);
+    margin-bottom: -2px;
+}
+
+.title-area h1 {
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    font-size: clamp(58px, 14vw, 91px);
+    line-height: .85;
+    font-weight: 700;
+    text-shadow:
+        3px 3px 0 #344c91,
+        -1px -1px 0 #344c91,
+        1px -1px 0 #344c91,
+        -1px 1px 0 #344c91,
+        1px 1px 0 #344c91;
+    letter-spacing: 2px;
+}
+
+.title-area .subtitle {
+    font-size: 19px;
+    color: white;
+    margin-top: 13px;
+    text-shadow: 1px 2px 3px #526fc0;
+}
+
+.tiny-star {
+    position: absolute;
+    color: #fff36b;
+    font-size: 23px;
+}
+
+.star-left { left: 12%; top: 45%; }
+.star-right { right: 12%; top: 35%; }
+
+/* MAIN SCRAPBOOK */
+
+.album {
+    background: #d5d5d5;
+    border: 2px solid #354c86;
+    border-radius: 17px;
+    padding: 12px;
+    box-shadow: 5px 7px 0 rgba(37, 55, 115, .3);
+    position: relative;
+    z-index: 1;
+}
+
+.paper {
+    background: var(--paper);
+    border: 2px solid #a9a9a9;
+    min-height: 345px;
+    border-radius: 9px;
+    padding: 19px;
+    position: relative;
+    overflow: hidden;
+}
+
+.paper::before {
+    content: "✧  ୨୧  ✧";
+    position: absolute;
+    top: 9px;
+    left: 12px;
+    color: #86a5d8;
+    font-size: 18px;
+}
+
+.photo-layout {
+    min-height: 305px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.photo-card {
+    width: min(78%, 270px);
+    background: white;
+    padding: 9px 9px 34px;
+    border: 1px solid #d5d5d5;
+    box-shadow: 3px 5px 9px rgba(0,0,0,.17);
+    transform: rotate(-3deg);
+    position: relative;
+    transition: .3s;
+}
+
+.photo-card:hover {
+    transform: rotate(0deg) scale(1.025);
+}
+
+.photo-card img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border: 1px solid #dedede;
+}
+
+.photo-label {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: #3c5e9d;
+}
+
+.tape {
+    position: absolute;
+    width: 85px;
+    height: 22px;
+    background: rgba(255, 206, 137, .75);
+    top: 3px;
+    right: 18%;
+    transform: rotate(9deg);
+    z-index: 2;
+}
+
+.photo-sticker {
+    position: absolute;
+    font-size: 35px;
+    z-index: 3;
+}
+
+.photo-sticker.left {
+    left: 7%;
+    bottom: 17%;
+    transform: rotate(-15deg);
+}
+
+.photo-sticker.right {
+    right: 7%;
+    top: 20%;
+    transform: rotate(13deg);
+}
+
+.paper-note {
+    text-align: center;
+    margin-top: 17px;
+    color: #4768a6;
+    font-size: 19px;
+    line-height: 1.2;
+}
+
+.paper-note span {
+    color: #e88bb7;
+}
+
+/* TABS */
+
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 12px;
+    gap: 2px;
+    position: relative;
+    z-index: 2;
+}
+
+.tab {
+    padding: 12px 3px;
+    border: 2px solid #333d65;
+    border-bottom: none;
+    background: #e8e8e8;
+    color: #222;
+    border-radius: 11px 11px 0 0;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.tab.active {
+    background: var(--yellow);
+    transform: translateY(-3px);
+}
+
+.tab:hover {
+    filter: brightness(1.04);
+}
+
+/* YELLOW CONTENT AREA */
+
+.tab-content {
+    display: none;
+    background: var(--yellow);
+    border: 2px solid #333d65;
+    border-radius: 0 0 12px 12px;
+    padding: 22px 17px;
+    min-height: 270px;
+    animation: show .3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes show {
+    from { opacity: 0; transform: translateY(7px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content-heading {
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    font-size: 38px;
+    color: #253d79;
+    margin-bottom: 15px;
+}
+
+.content-subheading {
+    text-align: center;
+    font-size: 16px;
+    margin: -10px 0 17px;
+    color: #4d4d4d;
+}
+
+.detail-card {
+    background: #fffef0;
+    border: 2px solid #333d65;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 13px;
+    box-shadow: 3px 4px 0 rgba(0,0,0,.12);
+}
+
+.detail-card h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    color: #263d78;
+}
+
+.detail-card p {
+    font-size: 16px;
+    line-height: 1.55;
+    color: #454545;
+}
+
+.detail-card a {
+    display: inline-block;
+    margin-top: 10px;
+    background: #d6e9ff;
+    color: #304c8c;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    text-decoration: none;
+    border: 1px solid #5875ad;
+}
+
+.detail-card a:hover {
+    background: #b8d7ff;
+}
+
+.theme-note {
+    text-align: center;
+    background: #fffef0;
+    border: 2px solid #333d65;
+    border-radius: 13px;
+    padding: 22px 15px;
+    box-shadow: 3px 4px 0 rgba(0,0,0,.12);
+}
+
+.theme-note .emoji {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.theme-note h3 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 39px;
+    margin-bottom: 8px;
+}
+
+.theme-note p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.rsvp-box {
+    text-align: center;
+    background: #fffef0;
+    border: 2px solid #333d65;
+    padding: 25px 15px;
+    border-radius: 13px;
+    box-shadow: 3px 4px 0 rgba(0,0,0,.12);
+}
+
+.rsvp-box h3 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 40px;
+}
+
+.rsvp-box p {
+    font-size: 17px;
+    margin: 8px 0 17px;
+    line-height: 1.5;
+}
+
+.rsvp-button {
+    border: 2px solid #333d65;
+    border-radius: 25px;
+    background: #b9e9a2;
+    padding: 11px 22px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    cursor: pointer;
+    font-size: 12px;
+    transition: .2s;
+}
+
+.rsvp-button:hover {
+    transform: scale(1.05);
+    background: #a5df88;
+}
+
+.rsvp-message {
+    display: none;
+    margin-top: 15px;
+    font-size: 17px;
+    color: #355d3c;
+}
+
+.letter {
+    background: #fffef0;
+    border: 2px solid #333d65;
+    border-radius: 12px;
+    padding: 17px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444;
+    white-space: pre-line;
+    box-shadow: 3px 4px 0 rgba(0,0,0,.12);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 10px 5px;
+    font-family: 'Caveat', cursive;
+    font-size: 21px;
+    color: white;
+    text-shadow: 1px 2px 3px #526fc0;
+}
+
+/* COUNTDOWN */
+
+.countdown-wrap {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.countdown-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 9px;
+    text-shadow: 1px 2px 3px #526fc0;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+}
+
+.time {
+    background: #fff;
+    border: 2px solid #40578e;
+    border-radius: 9px;
+    min-width: 56px;
+    padding: 7px 8px;
+    box-shadow: 2px 3px 0 rgba(37, 55, 115, .2);
+}
+
+.time strong {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 19px;
+}
+
+.time span {
+    font-family: 'Nunito', sans-serif;
+    font-size: 8px;
+    font-weight: 900;
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+    body {
+        padding: 14px 9px 30px;
+    }
+
+    .paper {
+        padding: 13px;
+    }
+
+    .photo-card {
+        width: 78%;
+    }
+
+    .photo-card img {
+        height: 230px;
+    }
+
+    .tab {
+        font-size: 10px;
+        padding: 12px 1px;
+    }
+
+    .tab-content {
+        padding: 18px 12px;
+    }
+
+    .detail-card {
+        padding: 12px;
+    }
+
+    .doodle.one { left: 1%; }
+    .doodle.two { right: 1%; }
+    .doodle.three { left: 1%; }
+    .doodle.four { right: 1%; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING DECORATIONS -->
+<div class="doodle one">✏️</div>
+<div class="doodle two">💿</div>
+<div class="doodle three">🦋</div>
+<div class="doodle four">🎀</div>
+<div class="doodle five">✧</div>
+
+<div class="sparkle a">✦</div>
+<div class="sparkle b">✧</div>
+<div class="sparkle c">✦</div>
+
+<div class="page">
+
+    <!-- TOP ICONS -->
+    <div class="topbar">
+        <div class="circle-icon">⌂</div>
+        <div class="circle-icon">♡</div>
+    </div>
+
+    <!-- TITLE -->
+    <header class="title-area">
+        <div class="title-small">Aly's</div>
+        <h1>18th Birthday!</h1>
+        <p class="subtitle">You're invited to celebrate with me! ♡</p>
+
+        <span class="tiny-star star-left">✦</span>
+        <span class="tiny-star star-right">✧</span>
+    </header>
+
+    <!-- SCRAPBOOK -->
+    <main class="album">
+
+        <div class="paper">
+
+            <div class="tape"></div>
+            <div class="photo-sticker left">♡</div>
+            <div class="photo-sticker right">✧</div>
+
+            <div class="photo-layout">
+
+                <div class="photo-card">
+                    <!-- Put your own photo in the same folder as index.html -->
+                    <img src="aly.jpg" alt="Aly">
+                    <div class="photo-label">the birthday girl ♡</div>
+                </div>
+
+                <p class="paper-note">
+                    You're invited to my special day!<br>
+                    <span>December 18, 2026 ✧</span>
+                </p>
+
+            </div>
+        </div>
+
+        <!-- COUNTDOWN -->
+        <div class="countdown-wrap">
+            <div class="countdown-label">COUNTING DOWN TO THE BIG DAY</div>
+
+            <div class="countdown">
+                <div class="time">
+                    <strong id="days">00</strong>
+                    <span>DAYS</span>
+                </div>
+                <div class="time">
+                    <strong id="hours">00</strong>
+                    <span>HOURS</span>
+                </div>
+                <div class="time">
+                    <strong id="minutes">00</strong>
+                    <span>MINS</span>
+                </div>
+                <div class="time">
+                    <strong id="seconds">00</strong>
+                    <span>SECS</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('details', this)">Details</button>
+            <button class="tab" onclick="showTab('theme', this)">Theme</button>
+            <button class="tab" onclick="showTab('rsvp', this)">RSVP</button>
+            <button class="tab" onclick="showTab('parents', this)">Parents</button>
+        </div>
+
+        <!-- DETAILS -->
+        <section class="tab-content active" id="details">
+
+            <h2 class="content-heading">The Birthday Plans ♡</h2>
+            <p class="content-subheading">Here's the little schedule for our celebration!</p>
+
+            <div class="detail-card">
+                <h3>🏡 FIRST STOP — ALY'S HOUSE</h3>
+                <p>
+                    <b>Date:</b> December 18, 2026<br>
+                    <b>Time:</b> 11:00 AM<br><br>
+
+                    We'll meet at my house, have lunch, and prepare some food together before heading to the resort.<br><br>
+
+                    <b>Address:</b><br>
+                    317 Hugo Perez, Purok 6,<br>
+                    Trece Martires City
+                </p>
+
+                <a href="https://maps.app.goo.gl/4hjSd8Lpe5zbSbEx5" target="_blank">
+                    OPEN HOUSE LOCATION ↗
+                </a>
+            </div>
+
+            <div class="detail-card">
+                <h3>🌴 SECOND STOP — AND1 PRIVATE RESORT</h3>
+                <p>
+                    <b>Date:</b> December 18, 2026<br>
+                    <b>Time:</b> 5:00 PM<br><br>
+
+                    Around 5:00 PM, we'll head to AND1 Private Resort to continue the celebration, prepare food, and enjoy the night together.<br><br>
+
+                    <b>Overnight stay:</b><br>
+                    December 18 until the morning of December 19.<br><br>
+
+                    <b>Going home:</b> Morning of December 19, 2026.
+                </p>
+
+                <a href="https://maps.app.goo.gl/KkGRY18zRuQM4K4i8" target="_blank">
+                    OPEN RESORT LOCATION ↗
+                </a>
+            </div>
+
+            <div class="detail-card">
+                <h3>📌 QUICK REMINDER</h3>
+                <p>
+                    December 18 — Meet at my house at 11:00 AM.<br><br>
+                    5:00 PM — Head to AND1 Private Resort.<br><br>
+                    December 18–19 — Overnight celebration.<br><br>
+                    December 19 — Going home in the morning.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- THEME -->
+        <section class="tab-content" id="theme">
+
+            <h2 class="content-heading">Dress Code! 💿</h2>
+            <p class="content-subheading">Let's bring that NewJeans vibe!</p>
+
+            <div class="theme-note">
+                <div class="emoji">💿🦋🎀</div>
+                <h3>NewJeans Coded!</h3>
+                <p>
+                    Dress up in your favorite NewJeans-inspired outfit! Think Y2K fashion, cute casual looks, streetwear, denim, sporty fits, and anything that gives off that iconic NewJeans vibe.<br><br>
+
+                    Just have fun with your outfit and make it your own! ♡
+                </p>
+            </div>
+
+        </section>
+
+        <!-- RSVP -->
+        <section class="tab-content" id="rsvp">
+
+            <h2 class="content-heading">Will You Be There? 💌</h2>
+            <p class="content-subheading">Your presence would make this day extra special!</p>
+
+            <div class="rsvp-box">
+                <h3>Save the date! ♡</h3>
+                <p>
+                    I'm looking forward to celebrating this special milestone with you!
+                </p>
+
+                <button class="rsvp-button" onclick="showMessage()">
+                    I'M EXCITED! ♡
+                </button>
+
+                <div class="rsvp-message" id="rsvpMessage">
+                    YAY! Thank you for checking out my invitation!<br>
+                    Can't wait to celebrate with you! 💙
+                </div>
+            </div>
+
+        </section>
+
+        <!-- PARENTS -->
+        <section class="tab-content" id="parents">
+
+            <h2 class="content-heading">A Little Note :> </h2>
+            <p class="content-subheading">For the parents </p>
+
+            <div class="letter">
+♡ A Little Note for Parents
+
+Dear Parents,
+
+Good day po!
+
+I would like to kindly ask for your permission to let your daughters join my 18th birthday celebration on December 18–19, 2026.
+
+We will first meet at my house at 11:00 AM on December 18 to have lunch and prepare some food. Then, around 5:00 PM, we will head to the resort, where we will continue the celebration and stay overnight until the following morning, December 19.
+
+I would really appreciate it po if you would allow your daughters to join us. It would mean a lot to me to have them celebrate this special day with me and create more happy memories together.
+
+Rest assured that I understand your concerns as parents, and I truly appreciate your time and consideration. Maraming salamat po!
+
+With love and appreciation,
+Your birthday celebrant ♡
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        made by aly 
+    </footer>
+
+</div>
+
+<script>
+
+
+function showTab(tabId, button) {
+
+    document.querySelectorAll('.tab-content').forEach(section => {
+        section.classList.remove('active');
+    });
+
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    document.getElementById(tabId).classList.add('active');
+    button.classList.add('active');
+
+}
+
+
+function showMessage() {
+    document.getElementById('rsvpMessage').style.display = 'block';
+}
+
+
+function updateCountdown() {
+
+    const birthday = new Date(2026, 11, 18, 0, 0, 0).getTime();
+    const now = new Date().getTime();
+    const distance = birthday - now;
+
+    if (distance <= 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>
+
+
+
